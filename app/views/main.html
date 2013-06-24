@@ -1,0 +1,39 @@
+<div class="hero-unit">
+  <h1>Molarity</h1>
+  <h3>Enjoy chemistry! - Molar.io</h3>
+  <div ng-controller="molarCtrl">
+  <form ng-submit="addEntry()">
+    <input type="text" ng-model= "newEntry.name">
+    <input type="submit" value="Add" class="btn btn-success">
+    <!-- mass -->
+    <div class="input-append">
+     <input class="span2" id="appendedDropdownButton" type="text">
+     <div class="btn-group">
+       <button class="btn dropdown-toggle" data-toggle="dropdown">
+        Action
+        <span class="caret"></span>
+       </button>
+       <ul class="dropdown-menu">
+       <li>M</li>
+       <li>mM</li>
+       <li>µM</li>
+       <li>nM</li>
+       <li>pM</li>
+       </ul>
+     </div>
+    </div>
+  </form>
+  <ul class="unstyled">
+    <li ng-repeat="entry in entries">    
+    <button ng-click="deleteEntry($index)" id = "{{entry.id}}" class="close">&times;</button>
+    {{entry.name}}
+    <span ng-show="entry.winner" ng-class="{'label label-important': entry == lastWinner, label: entry != lastWinner}">WINNER</span>
+    </li>
+  </ul>
+  
+  <button ng-click="calcMass()" class="btn btn-primary">Mass</button>
+  <button ng-click="calcMolarity()" class="btn btn-primary">Molarity</button>
+  <button ng-click="calcVolume()" class="btn btn-primary">Volume</button>
+  <button ng-click="calcMW()" class="btn btn-primary">Molecular Weight</button>
+</div>
+</div>
