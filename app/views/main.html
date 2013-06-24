@@ -1,27 +1,30 @@
 <div class="hero-unit">
   <h1>Molarity</h1>
   <h3>Enjoy chemistry! - Molar.io</h3>
-  <div ng-controller="molarCtrl">
-  <form ng-submit="addEntry()">
-    <input type="text" ng-model= "newEntry.name">
-    <input type="submit" value="Add" class="btn btn-success">
-    <!-- mass -->
-    <div class="input-append">
-     <input class="span2" id="appendedDropdownButton" type="text">
-     <div class="btn-group">
-       <button class="btn dropdown-toggle" data-toggle="dropdown">
-        Action
-        <span class="caret"></span>
-       </button>
-       <ul class="dropdown-menu">
-       <li>M</li>
-       <li>mM</li>
-       <li>µM</li>
-       <li>nM</li>
-       <li>pM</li>
-       </ul>
-     </div>
+  
+  <div ng-controller="MainCtrl">
+    <h4>What do you want to calculate?</h4>
+    <div class="well">{{radioModel}}</div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Molarity'">Molarity</button>
+        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Mass'">Mass</button>
+        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Molecular Weight'">Molecular Weight</button>
+        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Volume'">Volume</button>
     </div>
+</div>
+
+  <div ng-controller="MainCtrl">
+  <form ng-submit="addEntry()">    
+    <br>
+    <input type="text" ng-model= "newEntry.volume">
+    <br>
+    <input type="text" ng-model= "newEntry.mass">
+    <br>
+    <input type="text" ng-model= "newEntry.molarity">
+    <br>
+    <input type="text" ng-model= "newEntry.mw">
+
+<!--     <input type="submit" value="Add" class="btn btn-success"> -->
   </form>
   <ul class="unstyled">
     <li ng-repeat="entry in entries">    
@@ -31,9 +34,11 @@
     </li>
   </ul>
   
-  <button ng-click="calcMass()" class="btn btn-primary">Mass</button>
+  <!--
+<button ng-click="calcMass()" class="btn btn-primary">Mass</button>
   <button ng-click="calcMolarity()" class="btn btn-primary">Molarity</button>
   <button ng-click="calcVolume()" class="btn btn-primary">Volume</button>
   <button ng-click="calcMW()" class="btn btn-primary">Molecular Weight</button>
+-->
 </div>
 </div>

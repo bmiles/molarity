@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('molarityApp', [])
+var molarityApp = angular.module('molarityApp', ['ui.bootstrap'])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
