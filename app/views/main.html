@@ -4,7 +4,7 @@
   
   <div ng-controller="MainCtrl">
     <h4>What do you want to calculate?</h4>
-    <div class="well">{{radioModel}}</div>
+    <div class="well">{{radioModel}} {{solution()}}</div>
     <div class="btn-group">
         <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Molarity'">Molarity</button>
         <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Mass'">Mass</button>
@@ -14,16 +14,37 @@
 </div>
 
   <div ng-controller="MainCtrl">
-  <form ng-submit="addEntry()">    
+  <form class="form-horizontal" ng-submit="addEntry()">   
+   
     <br>
-    <input type="text" ng-model= "newEntry.volume">
-    <br>
-    <input type="text" ng-model= "newEntry.mass">
-    <br>
-    <input type="text" ng-model= "newEntry.molarity">
-    <br>
-    <input type="text" ng-model= "newEntry.mw">
-
+    <div class="control-group">
+     <label class="control-label" for="molarityfield">Molarity</label>
+     <div class="controls">
+        <input id="molarityfield" type="text" ng-model= "knownMolarity"> {{knownMolarity}}
+     </div>
+    </div>
+    
+    <div class="control-group">
+     <label class="control-label" for="massfield">Mass</label>
+     <div class="controls">
+        <input id="massfield" type="text" ng-model= "knownMass"> {{knownMass}}
+     </div>
+    </div>
+    
+    <div class="control-group">
+     <label class="control-label" for="mwfield">Molecular Weight</label>
+     <div class="controls">
+        <input id="mwfield" type="text" ng-model= "knownMw"> {{knownMw}}
+     </div>
+    </div>
+    
+    <div class="control-group">
+     <label class="control-label" for="volumefield">Volume</label>
+     <div class="controls">
+        <input id="volumefield" type="text" ng-model= "knownVolume"> {{knownVolume}}
+     </div>
+    </div>
+    
 <!--     <input type="submit" value="Add" class="btn btn-success"> -->
   </form>
   <ul class="unstyled">
