@@ -1,21 +1,19 @@
 <div class="hero-unit">
   <h1>Molarity</h1>
   <h3>Enjoy chemistry! - Molar.io</h3>
-  
+  <h4>What do you want to calculate?</h4>
+    
   <div ng-controller="MainCtrl">
-    <h4>What do you want to calculate?</h4>
-    <div class="well">{{radioModel}} {{solution()}}</div>
-    <div class="btn-group">
-        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Molarity'">Molarity</button>
-        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Mass'">Mass</button>
-        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Molecular Weight'">Molecular Weight</button>
-        <button type="button" class="btn btn-primary" ng-model="radioModel" btn-radio="'Volume'">Volume</button>
-    </div>
-</div>
-
-  <div ng-controller="MainCtrl">
-  <form class="form-horizontal" ng-submit="addEntry()">   
+    <form class="form-horizontal" ng-submit="submitForm()">
+      <div class="well">{{radioValue}}</div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" ng-model="radioValue" value="selectMolarity" btn-radio="'selectMolarity'">Molarity</button>
+        <button type="button" class="btn btn-primary" ng-model="radioValue" value="selectMass" btn-radio="'selectMass'">Mass</button>
+        <button type="button" class="btn btn-primary" ng-model="radioValue" value="selectMw" btn-radio="'selectMw'">Molecular Weight</button>
+        <button type="button" class="btn btn-primary" ng-model="radioValue" value="selectVolume" btn-radio="'selectVolume'">Volume</button>
+      </div>
    
+    <br>
     <br>
     <div class="control-group">
      <label class="control-label" for="molarityfield">Molarity</label>
@@ -45,8 +43,13 @@
      </div>
     </div>
     
-<!--     <input type="submit" value="Add" class="btn btn-success"> -->
+    <!--     <input type="submit" value="Add" class="btn btn-success"> -->
   </form>
+  <div class="well">
+      {{calculation()}}
+    </div>
+    
+
   <ul class="unstyled">
     <li ng-repeat="entry in entries">    
     <button ng-click="deleteEntry($index)" id = "{{entry.id}}" class="close">&times;</button>
