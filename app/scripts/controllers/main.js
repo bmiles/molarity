@@ -9,7 +9,7 @@ angular.module('molarityApp')
         else if ($scope.radioValue === "selectMass") {
           return $scope.findMass();
         }
-        else return 3;
+        else return "no calculation selected :(";
     };
     
     $scope.findMolarity = function() {
