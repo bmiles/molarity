@@ -4,7 +4,7 @@
   <h4>What do you want to calculate?</h4>
     
   <div ng-controller="MainCtrl">
-    <form class="form-horizontal" ng-submit="submitForm()">
+    <form ng-app="molarityApp" class="form-horizontal" ng-submit="submitForm()">
 <!--       <div class="well">{{radioValue}}</div> -->
       <div class="btn-group">
         <button type="button" class="btn btn-primary" ng-model="radioValue" value="selectMolarity" btn-radio="'selectMolarity'">Molarity</button>
@@ -18,28 +18,50 @@
     <div class="control-group">
      <label class="control-label" for="molarityfield">Molarity</label>
      <div class="controls">
-        <input id="molarityfield" type="text" ng-model= "knownMolarity"> {{knownMolarity}}
+        <input id="molarityfield" type="text" ng-model= "knownMolarity" ng-disabled="{{isDisabled('selectMolarity')}}"> {{knownMolarity}} {{isDisabled('selectMolarity')}}
+        
+     <select class="span1" ng-model="molarityUnit">
+       <option value="si">M</option>
+       <option value="milli">mM</option>
+       <option value="micro">µM</option>
+       <option value="nano">nM</option>
+       <option value="pico">pM</option>
+     </select>
+
      </div>
     </div>
     
     <div class="control-group">
      <label class="control-label" for="massfield">Mass</label>
      <div class="controls">
-        <input id="massfield" type="text" ng-model= "knownMass"> {{knownMass}}
+       <input id="massfield" type="text" ng-model= "knownMass"> {{knownMass}}
+       <select class="span1" ng-model="massUnit">
+         <option value="si">g</option>
+         <option value="milli">mg</option>
+         <option value="micro">µg</option>
+         <option value="nano">ng</option>
+       </select>
      </div>
     </div>
     
     <div class="control-group">
      <label class="control-label" for="mwfield">Molecular Weight</label>
      <div class="controls">
-        <input id="mwfield" type="text" ng-model= "knownMw"> {{knownMw}}
+       <input id="mwfield" type="text" ng-model= "knownMw"> g/mol {{knownMw}}
      </div>
     </div>
     
     <div class="control-group">
      <label class="control-label" for="volumefield">Volume</label>
      <div class="controls">
-        <input id="volumefield" type="text" ng-model= "knownVolume"> {{knownVolume}}
+       <input id="volumefield" type="text" ng-model= "knownVolume"> {{knownVolume}}
+       <select class="span1" ng-model="volumeUnit">
+         <option value="si">L</option>
+         <option value="milli">mL</option>
+         <option value="micro">µL</option>
+         <option value="nano">nL</option>
+       </select>
+        
      </div>
     </div>
     
